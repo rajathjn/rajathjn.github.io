@@ -22,34 +22,25 @@ const greeting = {
   logo_name: "Rajath Jaiprakash",
   nickname: "Rajath J",
   subTitle:
-    "Hello! I am a driven and motivated professional with a passion for innovation and creativity. \
-     I constantly seek new challenges and opportunities to grow and develop both personally and professionally.",
+    "I’m a driven and motivated professional passionate about innovation and creativity, always seeking new challenges and growth opportunities.",
   resumeLink:
     "https://drive.google.com/drive/folders/12yPrJwy3fg1vbPbRqMWvDVdtHjpoW4PF?usp=share_link",
   portfolio_repository: "https://github.com/rajathjn",
   githubProfile: "https://github.com/rajathjn",
 };
 
+// Social media details
 const socialMediaLinks = [
-  /* Your Social Media Link */
-  // github: "https://github.com/ashutosh1919",
-  // linkedin: "https://www.linkedin.com/in/ashutosh-hathidara-88710b138/",
-  // gmail: "ashutoshhathidara98@gmail.com",
-  // gitlab: "https://gitlab.com/ashutoshhathidara98",
-  // facebook: "https://www.facebook.com/laymanbrother.19/",
-  // twitter: "https://twitter.com/ashutosh_1919",
-  // instagram: "https://www.instagram.com/layman_brother/"
-
   {
     name: "Github",
     link: "https://github.com/rajathjn",
-    fontAwesomeIcon: "fa-github", // Reference https://fontawesome.com/icons/github?style=brands
+    fontAwesomeIcon: "fab fa-github", // Reference https://fontawesome.com/icons/github?style=brands
     backgroundColor: "#181717", // Reference https://simpleicons.org/?q=github
   },
   {
     name: "LinkedIn",
     link: "https://www.linkedin.com/in/rajath-jaiprakash/",
-    fontAwesomeIcon: "fa-linkedin-in", // Reference https://fontawesome.com/icons/linkedin-in?style=brands
+    fontAwesomeIcon: "fab fa-linkedin-in", // Reference https://fontawesome.com/icons/linkedin-in?style=brands
     backgroundColor: "#0077B5", // Reference https://simpleicons.org/?q=linkedin
   },
   // {
@@ -61,26 +52,15 @@ const socialMediaLinks = [
   {
     name: "Gmail",
     link: "mailto:rajathjnx@gmail.com",
-    fontAwesomeIcon: "fa-google", // Reference https://fontawesome.com/icons/google?style=brands
+    fontAwesomeIcon: "fab fa-google", // Reference https://fontawesome.com/icons/google?style=brands
     backgroundColor: "#D14836", // Reference https://simpleicons.org/?q=gmail
   },
+  // Enable once more LeetCode profile has more stats
   // {
-  //   name: "Twitter",
-  //   link: "https://twitter.com/ashutosh_1919",
-  //   fontAwesomeIcon: "fa-twitter", // Reference https://fontawesome.com/icons/twitter?style=brands
-  //   backgroundColor: "#1DA1F2", // Reference https://simpleicons.org/?q=twitter
-  // },
-  // {
-  //   name: "Facebook",
-  //   link: "https://www.facebook.com/laymanbrother.19/",
-  //   fontAwesomeIcon: "fa-facebook-f", // Reference https://fontawesome.com/icons/facebook-f?style=brands
-  //   backgroundColor: "#1877F2", // Reference https://simpleicons.org/?q=facebook
-  // },
-  // {
-  //   name: "Instagram",
-  //   link: "https://www.instagram.com/layman_brother/",
-  //   fontAwesomeIcon: "fa-instagram", // Reference https://fontawesome.com/icons/instagram?style=brands
-  //   backgroundColor: "#E4405F", // Reference https://simpleicons.org/?q=instagram
+  //   name: "LeetCode",
+  //   link: "https://leetcode.com/u/rajathjnx/",
+  //   fontAwesomeIcon: "fa fa-code", // Reference https://fontawesome.com/icons/google?style=brands
+  //   backgroundColor: "#FFA116", // Reference https://simpleicons.org/?q=gmail
   // },
 ];
 
@@ -88,7 +68,7 @@ const skills = {
   data: [
     {
       title: "Site Reliability Engineer",
-      fileName: "DataScienceImg",
+      fileName: "FullStackImg",
       skills: [
         "⚡ Developed highly scalable production ready models using Ansible",
         "⚡ Experience of working with DNS, Monitoring and logging tools",
@@ -110,22 +90,29 @@ const skills = {
           },
         },
         {
+          skillName: "C++",
+          fontAwesomeClassname: "logos:c-plusplus",
+          style: {
+            backgroundColor: "transparent",
+          },
+        },
+        {
+          skillName: "ElK Stack (Elasticsearch, Logstash, Kibana)",
+          fontAwesomeClassname: "vscode-icons:file-type-elastic",
+          style: {
+            backgroundColor: "transparent",
+          },
+        },
+        {
+          skillName: "Docker",
+          fontAwesomeClassname: "skill-icons:docker",
+          style: {
+            backgroundColor: "transparent",
+          },
+        },
+        {
           skillName: "Bash",
           fontAwesomeClassname: "skill-icons:bash-dark",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-        {
-          skillName: "Elasticsearch",
-          fontAwesomeClassname: "logos:elasticsearch",
-          style: {
-            backgroundColor: "transparent",
-          },
-        },
-        {
-          skillName: "Kibana",
-          fontAwesomeClassname: "logos:kibana",
           style: {
             backgroundColor: "transparent",
           },
@@ -138,206 +125,11 @@ const skills = {
           },
         },
         {
-          skillName: "DNS",
+          skillName: "DNS (Bind9)",
           fontAwesomeClassname: "eos-icons:dns",
           style: {
             backgroundColor: "transparent",
             color: "#3776AB",
-          },
-        },
-        {
-          skillName: "Deeplearning",
-          imageSrc: "deeplearning_ai_logo.png",
-        },
-      ],
-    },
-    {
-      title: "Full Stack Development",
-      fileName: "FullStackImg",
-      skills: [
-        "⚡ Building responsive website front end using React-Redux",
-        "⚡ Developing mobile applications using Flutter, React Native and solo android apps using Kotlin",
-        "⚡ Creating application backend in Node, Express & Flask",
-      ],
-      softwareSkills: [
-        {
-          skillName: "Wireshark",
-          fontAwesomeClassname: "simple-icons:wireshark", //"logos:wireshark",
-          style: {
-            backgroundColor: "transparent",
-            color: "#3776AB",
-            color: "#E34F26",
-          },
-        },
-        {
-          skillName: "CSS3",
-          fontAwesomeClassname: "fa-css3",
-          style: {
-            color: "#1572B6",
-          },
-        },
-        {
-          skillName: "Sass",
-          fontAwesomeClassname: "simple-icons:sass",
-          style: {
-            color: "#CC6699",
-          },
-        },
-        {
-          skillName: "JavaScript",
-          fontAwesomeClassname: "simple-icons:javascript",
-          style: {
-            backgroundColor: "#000000",
-            color: "#F7DF1E",
-          },
-        },
-        {
-          skillName: "ReactJS",
-          fontAwesomeClassname: "simple-icons:react",
-          style: {
-            color: "#61DAFB",
-          },
-        },
-        {
-          skillName: "NodeJS",
-          fontAwesomeClassname: "devicon-plain:nodejs-wordmark",
-          style: {
-            color: "#339933",
-          },
-        },
-        {
-          skillName: "NPM",
-          fontAwesomeClassname: "simple-icons:npm",
-          style: {
-            color: "#CB3837",
-          },
-        },
-        {
-          skillName: "Yarn",
-          fontAwesomeClassname: "simple-icons:yarn",
-          style: {
-            color: "#2C8EBB",
-          },
-        },
-        {
-          skillName: "Gatsby",
-          fontAwesomeClassname: "simple-icons:gatsby",
-          style: {
-            color: "#663399",
-          },
-        },
-        {
-          skillName: "Flutter",
-          fontAwesomeClassname: "simple-icons:flutter",
-          style: {
-            color: "#02569B",
-          },
-        },
-      ],
-    },
-    {
-      title: "Cloud Infra-Architecture",
-      fileName: "CloudInfraImg",
-      skills: [
-        "⚡ Experience working on multiple cloud platforms",
-        "⚡ Hosting and maintaining websites on virtual machine instances along with integration of databases",
-        "⚡ Deploying deep learning models on cloud to use on mobile devices",
-        "⚡ Setting up streaming jobs from DB to Server or vice-versa on GCP and AWS",
-      ],
-      softwareSkills: [
-        {
-          skillName: "GCP",
-          fontAwesomeClassname: "simple-icons:googlecloud",
-          style: {
-            color: "#4285F4",
-          },
-        },
-        {
-          skillName: "AWS",
-          fontAwesomeClassname: "simple-icons:amazonaws",
-          style: {
-            color: "#FF9900",
-          },
-        },
-        {
-          skillName: "Azure",
-          fontAwesomeClassname: "simple-icons:microsoftazure",
-          style: {
-            color: "#0089D6",
-          },
-        },
-        {
-          skillName: "Firebase",
-          fontAwesomeClassname: "simple-icons:firebase",
-          style: {
-            color: "#FFCA28",
-          },
-        },
-        {
-          skillName: "PostgreSQL",
-          fontAwesomeClassname: "simple-icons:postgresql",
-          style: {
-            color: "#336791",
-          },
-        },
-        {
-          skillName: "MongoDB",
-          fontAwesomeClassname: "simple-icons:mongodb",
-          style: {
-            color: "#47A248",
-          },
-        },
-        {
-          skillName: "Docker",
-          fontAwesomeClassname: "simple-icons:docker",
-          style: {
-            color: "#1488C6",
-          },
-        },
-        {
-          skillName: "Kubernetes",
-          fontAwesomeClassname: "simple-icons:kubernetes",
-          style: {
-            color: "#326CE5",
-          },
-        },
-      ],
-    },
-    {
-      title: "UI/UX Design",
-      fileName: "DesignImg",
-      skills: [
-        "⚡ Designing highly attractive user interface for mobile and web applications",
-        "⚡ Customizing logo designs and building logos from scratch",
-        "⚡ Creating the flow of application functionalities to optimize user experience",
-      ],
-      softwareSkills: [
-        {
-          skillName: "Adobe XD",
-          fontAwesomeClassname: "simple-icons:adobexd",
-          style: {
-            color: "#FF2BC2",
-          },
-        },
-        {
-          skillName: "Figma",
-          fontAwesomeClassname: "simple-icons:figma",
-          style: {
-            color: "#F24E1E",
-          },
-        },
-        {
-          skillName: "Adobe Illustrator",
-          fontAwesomeClassname: "simple-icons:adobeillustrator",
-          style: {
-            color: "#FF7C00",
-          },
-        },
-        {
-          skillName: "Inkscape",
-          fontAwesomeClassname: "simple-icons:inkscape",
-          style: {
-            color: "#000000",
           },
         },
       ],
@@ -364,14 +156,6 @@ const competitiveSites = {
       },
       profileLink: "https://www.hackerrank.com/rajathjnx",
     },
-    {
-      siteName: "Codechef",
-      iconifyClassname: "simple-icons:codechef",
-      style: {
-        color: "#5B4638",
-      },
-      profileLink: "https://www.codechef.com/users/rajathjnx",
-    },
   ],
 };
 
@@ -384,7 +168,7 @@ const degrees = {
       alt_name: "PESU",
       duration: "2018 - 2022",
       descriptions: [
-        "⚡ I have studied basic electronics engineering subjects like Signals and Systems, DSP, NAS, Computer Networking, EDA, etc.",
+        "⚡ I have studied electronics engineering subjects like Signals and Systems, DSP, NAS, Computer Networking, EDA, etc.",
         "⚡ Apart from this, I have done courses on Internet of Things, Fundametals of MATLAB and Artifical Neural Networks.",
         "⚡ I was selected for Merit cum Means Scholarship which is given to the top 10% of students in our college.",
       ],
@@ -447,11 +231,11 @@ const experience = {
           logo_path: "akamai.png",
           duration: "July 2022 - Present",
           location: "Bangalore, Karnataka",
-          description:
-            "I am working in deployment services. \
-            The projects involve automation for process improvements, version upgrade/migration, optimization and feature expansion. \
-            I am currently working on Mobile Security and Networking. \
-            We are responsible for Secure Internet Access Services for MNOs and ISPs.",
+          description: [
+            " Part of the Automation Team. I am working in deployment services.",
+            " The projects involve automation for program setup and configuration, process improvements, version upgrade/migration, optimization and feature expansion.",
+            " I am currently working on Mobile Security and Networking.",
+            " We are responsible for Secure Internet Access Services for MNOs and ISPs."],
           color: "#0879bf",
         },
       ],
@@ -466,10 +250,10 @@ const experience = {
           logo_path: "akamai.png",
           duration: "Jan 2022 - May 2022",
           location: "Dublin, Ireland",
-          description:
-            "Part of the Akamai's SRE team. \
-            Reponsible for the deployment of new features and bug fixes. \
-            Worked on automation of the deployment process.",
+          description: [
+            " Part of the Akamai's SIA-Mobile SRE team.",
+            " Reponsible for the deployment of new features and bug fixes.",
+            " Worked on automation of the deployment process."],
           color: "#000000",
         },
         {
@@ -479,10 +263,10 @@ const experience = {
           logo_path: "isfcr.png",
           duration: "June 2020 - July 2020",
           location: "Bangalore, Karnataka",
-          description:
-            "Headed the design of the Remote Automation Control tool. \
-            Facilitated the control of automation tools over a secure channel. \
-            Built with Node-RED, with a user-friendly GUI.",
+          description: [
+            " Headed the design of the Remote Automation Control tool.",
+            " Facilitated the control of automation tools over a secure channel.",
+            " Built with Node-RED, with a user-friendly GUI."],
           color: "#ee3c26",
         },
         {
@@ -492,10 +276,10 @@ const experience = {
           logo_path: "cori.jpg",
           duration: "June 2019 - July 2019",
           location: "Bangalore, Karnataka",
-          description:
-            "Built 2 remote controlled bots utilizing IR sensor and Bluetooth. \
-            Built a Digital Photoframe using the Arduino UNO with a software developed in python, which handled the tasks of conversion with a built-in help. \
-            PROJECT FEATURED IN THE ELECTRONICS FOR YOU MAGAZINE.",
+          description: [
+            " Built 2 remote controlled bots utilizing IR sensor and Bluetooth.",
+            " Built a Digital Photoframe using the Arduino UNO with a software developed in python, which handled the tasks of conversion with a built-in help.",
+            " PROJECT FEATURED IN THE ELECTRONICS FOR YOU MAGAZINE."],
           color: "#4285F4",
         },
       ],
@@ -511,10 +295,10 @@ const experience = {
           logo_path: "ieeeras.png",
           duration: "Jan 2020 - April 2020",
           location: "Bangalore, Karnataka",
-          description:
-            "Planned the design of algorithms for the Swarm Robotics Mega Project. \
-            Responsible for the redesign of algorithms and successful integration withhardware. \
-            Semi-Hive type algorithm developed.",
+          description: [
+            " Planned the design of algorithms for the Swarm Robotics Mega Project.",
+            " Responsible for the redesign of algorithms and successful integration withhardware.",
+            " Semi-Hive type algorithm developed."],
           color: "#0071C5",
         },
       ],
@@ -561,12 +345,8 @@ const contactPageData = {
     title: "Blogs",
     subtitle:
       "I like to write about my learning experiences and share my knowledge with others. Stay tuned for when I jot down my thoughts.",
-    link: "https://www.lego.com/en-in/error",
+    link: "https://rajathjn.github.io/blog/",
     avatar_image_path: "blogs_image.svg",
-  },
-  phoneSection: {
-    title: "",
-    subtitle: "",
   },
 };
 
