@@ -314,6 +314,8 @@ const projectsHeader = {
   avatar_image_path: "projects_image.svg",
 };
 
+// for actual projects refer to shared/opensource
+
 const publicationsHeader = {
   title: "Publications",
   description: "Some of my published Articles, Blogs and Research.",
