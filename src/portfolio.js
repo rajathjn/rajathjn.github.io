@@ -347,7 +347,7 @@ const contactPageData = {
     title: "Blogs",
     subtitle:
       "I like to write about my learning experiences and share my knowledge with others. Stay tuned for when I jot down my thoughts.",
-    link: "https://rajathjn.github.io/blog/",
+    link: "https://rajathjn.github.io/blogsite/",
     avatar_image_path: "blogs_image.svg",
   },
 };
