@@ -1,7 +1,45 @@
 {
     "data": [
         {
-            "id": "MDEwOlJlcG9zaXRvcnkyNTEwMTIxMTk=",
+            "name": "Shorts Maker📽️",
+            "createdAt": "2025-01-29T11:06:18Z",
+            "url": "https://github.com/rajathjn/shorts_maker",
+            "description": "ClipForge ( Previously called ShortsMaker ) is a Python package designed to facilitate the creation of engaging short videos or social media clips. It leverages a variety of external services and libraries to streamline the process of generating, processing, and uploading short content.",
+            "isFork": false,
+            "languages": [
+                {
+                    "name": "Python",
+                    "iconifyClass": "logos-python"
+                }
+            ]
+        },
+        {
+            "name": "Frostmourne Tunes🎶",
+            "createdAt": "2025-08-29T11:06:18Z",
+            "url": "https://github.com/rajathjn/frostmourne_tunes",
+            "description": "Discord Music Bot made using python",
+            "isFork": false,
+            "languages": [
+                {
+                    "name": "Python",
+                    "iconifyClass": "logos-python"
+                }
+            ]
+        },
+        {
+            "name": "Resume📝",
+            "createdAt": "2025-08-29T11:06:18Z",
+            "url": "https://github.com/rajathjn/Resume",
+            "description": "Repository contains the LaTeX source code for my professional resume and Cover Letter",
+            "isFork": false,
+            "languages": [
+                {
+                    "name": "TeX",
+                    "iconifyClass": "logos-tex"
+                }
+            ]
+        },
+        {
             "name": "EmotionRecognition",
             "createdAt": "2020-03-29T11:06:18Z",
             "url": "https://github.com/rajathjn/EmotionRecognition",
@@ -19,65 +57,28 @@
             ]
         },
         {
-            "id": "MDEwOlJlcG9zaXRvcnkxNTY2OTg1OTA=",
-            "name": "Soldier-Of-Fortune",
-            "createdAt": "2018-11-08T11:45:25Z",
-            "url": "https://github.com/rajathjn/Soldier-Of-Fortune",
-            "description": "This repository contains my idea for an interactive text based game, Read the readme file for further details ",
-            "isFork": false,
-            "languages": [
-                {
-                    "name": "Python",
-                    "iconifyClass": "logos-python"
-                }
-            ]
-        },
-        {
-            "id": "MDEwOlJlcG9zaXRvcnkzNjA2NTgwOTA=",
-            "name": "Implementation-of-March-Algorithms-in-Verilog",
-            "createdAt": "2021-04-22T19:21:32Z",
-            "url": "https://github.com/rajathjn/Implementation-of-March-Algorithms-in-Verilog",
-            "description": null,
-            "isFork": false,
-            "languages": []
-        },
-        {
-            "id": "MDEwOlJlcG9zaXRvcnkzOTU1OTcxODE=",
             "name": "Blind-Image-Debblurring",
             "createdAt": "2021-08-13T09:39:29Z",
             "url": "https://github.com/rajathjn/Blind-Image-Debblurring",
             "description": null,
             "isFork": false,
-            "languages": []
+            "languages": [
+                {
+                    "name": "MATLAB",
+                    "iconifyClass": "logos-code"
+                }
+            ]
         },
         {
-            "id": "MDEwOlJlcG9zaXRvcnkzOTU2MDY3ODU=",
             "name": "Image-Filter",
             "createdAt": "2021-08-13T10:10:16Z",
             "url": "https://github.com/rajathjn/Image-Filter",
             "description": null,
             "isFork": false,
-            "languages": []
-        },
-        {
-            "id": "R_kgDOJMzS8Q",
-            "name": "Discord_Music_bot",
-            "createdAt": "2023-03-22T10:17:05Z",
-            "url": "https://github.com/rajathjn/Discord_Music_bot",
-            "description": "Work in progress",
-            "isFork": false,
-            "languages": [
+            "languages": [                
                 {
-                    "name": "Dockerfile",
-                    "iconifyClass": "simple-icons:docker"
-                },
-                {
-                    "name": "JavaScript",
-                    "iconifyClass": "logos-javascript"
-                },
-                {
-                    "name": "Shell",
-                    "iconifyClass": "simple-icons:shell"
+                    "name": "MATLAB",
+                    "iconifyClass": "logos-code"
                 }
             ]
         }

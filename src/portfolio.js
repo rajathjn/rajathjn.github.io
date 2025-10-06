@@ -193,15 +193,6 @@ const degrees = {
 const certifications = {
   certifications: [
     {
-      title: "Introduction to MATLAB",
-      subtitle: "- Mathworks",
-      logo_path: "matlab.png",
-      certificate_link:
-        "https://matlabacademy.mathworks.com/progress/share/certificate.html?id=9d97bc69-02ad-4923-b659-52b45ed2f0ce",
-      alt_name: "MATLAB",
-      color_code: "#2A73CC",
-    },
-    {
       title: "Problem Solving ( Intermediate )",
       subtitle: "- HackerRank",
       logo_path: "hackerrank.png",
@@ -347,7 +338,7 @@ const contactPageData = {
     title: "Blogs",
     subtitle:
       "I like to write about my learning experiences and share my knowledge with others. Stay tuned for when I jot down my thoughts.",
-    link: "https://rajathjn.github.io/blog/",
+    link: "https://medium.com/@rajathjnx",
     avatar_image_path: "blogs_image.svg",
   },
 };
