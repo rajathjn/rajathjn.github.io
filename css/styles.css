@@ -1,0 +1,1210 @@
+/**
+ * ========================================
+ * PORTFOLIO WEBSITE - MAIN STYLESHEET
+ * ========================================
+ * 
+ * A modern, cyberpunk-themed portfolio stylesheet featuring:
+ * - CSS Custom Properties for theming
+ * - Glass morphism effects
+ * - Smooth animations and transitions
+ * - Responsive design (mobile-first approach)
+ * - Particle background integration
+ * 
+ * Table of Contents:
+ * 1. CSS Reset & Base Styles
+ * 2. CSS Custom Properties (Variables)
+ * 3. Background Animation
+ * 4. Scroll to Top Button
+ * 5. Navigation
+ * 6. Hero Section
+ * 7. Section Layouts
+ * 8. Works/Projects Grid
+ * 9. Glass Box Components
+ * 10. Button Styles
+ * 11. About Section
+ * 12. Contact Section
+ * 13. Footer
+ * 14. Responsive Design
+ * 15. Animations & Keyframes
+ * 16. Utility Classes
+ * 
+ * @author Rajath Jaiprakash
+ * @version 2.0.0
+ * @lastUpdated 2025-11-30
+ */
+
+/* ========================================
+   1. CSS RESET & BASE STYLES
+   Normalizes browser defaults and sets foundational styles
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   2. CSS CUSTOM PROPERTIES (VARIABLES)
+   Centralized design tokens for consistent theming
+   ======================================== */
+
+:root {
+    /* Color Palette - Dark cyberpunk theme */
+    --color-bg: #0f0f0f;                    /* Primary background */
+    --color-bg-secondary: #1a1a1a;          /* Secondary/elevated backgrounds */
+    --color-text: #ffffff;                  /* Primary text color */
+    --color-text-muted: #a6a6a6;            /* Secondary/muted text */
+    --color-accent: #ffffff;                /* Accent color for highlights */
+    
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* Spacing Scale - Consistent spacing throughout */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.5rem;   /* 24px */
+    --spacing-lg: 2rem;     /* 32px */
+    --spacing-xl: 4rem;     /* 64px */
+    
+    /* Layout Constraints */
+    --max-width: 1920px;                    /* Maximum content width */
+    --container-width: 1200px;              /* Standard container width */
+    
+    /* Animation Timing */
+    --transition-fast: 0.2s ease;           /* Quick micro-interactions */
+    --transition-normal: 0.4s ease;         /* Standard transitions */
+}
+
+/* Base HTML element - enables smooth scroll and proper scroll offset */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;               /* Offset for fixed navbar */
+}
+
+/* Body typography and base settings */
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;    /* Better font rendering on WebKit */
+    -moz-osx-font-smoothing: grayscale;     /* Better font rendering on Firefox */
+    overflow-x: hidden;                      /* Prevent horizontal scroll */
+    position: relative;
+}
+
+/* Default image behavior */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Default link styling - inherits color, smooth transitions */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+/* ========================================
+   3. BACKGROUND ANIMATION
+   Fixed particle canvas with animated grid overlay
+   ======================================== */
+
+/* Container for background effects - fixed behind all content */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;                   /* Allow clicks to pass through */
+    overflow: hidden;
+    background-color: var(--color-bg);
+}
+
+/* Canvas element for particle animation (controlled via JS) */
+#particleCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Animated grid pattern overlay - subtle cyberpunk effect */
+.grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 20s linear infinite;
+    opacity: 0.5;
+}
+
+/* Grid movement animation - creates subtle parallax effect */
+@keyframes gridMove {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+/* ========================================
+   4. SCROLL TO TOP BUTTON
+   Fixed button that appears when user scrolls down
+   ======================================== */
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;                             /* Hidden by default */
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+}
+
+/* Hover state - lift and glow effect */
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.6);
+    animation: neonPulse 1.5s ease-in-out infinite;
+}
+
+/* Visible state - toggled via JS when scrolled */
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ========================================
+   5. NAVIGATION
+   Fixed top navbar with logo and navigation links
+   ======================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg);
+    z-index: 1000;                          /* Above all content except modals */
+    padding: 1.25rem 1.25rem;
+    border-bottom: 1px solid var(--color-bg-secondary);
+}
+
+/* Navigation container - flexbox layout */
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo/brand link styling */
+.nav-logo a {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    transition: color var(--transition-fast);
+}
+
+.nav-logo a:hover {
+    color: var(--color-text-muted);
+}
+
+/* Navigation menu - horizontal layout on desktop */
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+/* Individual navigation links with underline animation */
+.nav-link {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    transition: color var(--transition-fast);
+    position: relative;
+}
+
+/* Animated underline effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-text);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-text);
+}
+
+/* Expand underline on hover or when active */
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Mobile menu toggle button - hidden on desktop */
+.nav-mobile-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   6. HERO SECTION
+   Full-height landing section with name and tagline
+   ======================================== */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 1.25rem 4rem;
+    text-align: center;
+    padding-top: 120px;                     /* Extra padding for fixed navbar */
+    position: relative;
+    z-index: 1;                             /* Above background animation */
+}
+
+/* Hero content container */
+.hero-container {
+    max-width: var(--container-width);
+    width: 100%;
+}
+
+/* Large hero title - name display */
+.hero-title {
+    font-size: 8rem;
+    font-weight: 500;
+    letter-spacing: -0.08em;
+    line-height: 1em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+}
+
+/* Hero subtitle - tagline/description */
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    color: var(--color-text-muted);
+}
+
+/* ========================================
+   7. SECTION LAYOUTS
+   Common styles for content sections
+   ======================================== */
+
+/* Section container with max-width and padding */
+.section-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 5rem 1.25rem;
+}
+
+/* Section header with title and description */
+.section-header {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Section titles - large uppercase text */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: -0.08em;
+    line-height: 1em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+}
+
+/* Section description - muted supporting text */
+.section-description {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    letter-spacing: -0.04em;
+}
+
+/* ========================================
+   8. WORKS/PROJECTS GRID
+   Grid layout for project cards
+   ======================================== */
+
+/* Works section wrapper */
+.works-section {
+    padding: 5rem 0;
+    position: relative;
+    z-index: 2;                             /* Above background animation */
+}
+
+/* 4-column grid for project cards */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+}
+
+/* Project card link wrapper - ensures full card is clickable */
+.work-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    height: 100%;
+}
+
+/* ========================================
+   9. GLASS BOX COMPONENTS
+   Shared glass morphism styles for cards and containers
+   Uses backdrop-filter for frosted glass effect
+   ======================================== */
+
+/* Universal glass box styling - applied to multiple components */
+.glass-box,
+.work-card,
+.skill-card,
+.experience-item,
+.education-item,
+.publication-item {
+    position: relative;
+    border-radius: 0.5rem;
+    /* Semi-transparent dark background with blur */
+    background: rgba(26, 26, 26, 0.6) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    -moz-backdrop-filter: blur(10px) !important;
+    /* Smooth pop transition with spring curve */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.3s ease, 
+                border-color 0.3s ease, 
+                background 0.3s ease;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    padding: 2rem;
+}
+
+/* Work card specific layout - vertical card with image */
+.work-card {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+/* Glass box hover effects - lift, glow, and color shift */
+.glass-box:hover,
+.work-card:hover,
+.skill-card:hover,
+.experience-item:hover,
+.education-item:hover,
+.publication-item:hover {
+    border-color: rgba(0, 255, 255, 0.6);
+    box-shadow: 0 10px 30px -10px rgba(0, 255, 255, 0.3),
+                0 0 20px rgba(0, 255, 255, 0.1),
+                inset 0 0 20px rgba(0, 255, 255, 0.05);
+    transform: translateY(-8px) scale(1.03) !important;
+    z-index: 10;
+}
+
+/* Shine effect overlay on glass boxes */
+.glass-box::after,
+.work-card::after,
+.skill-card::after,
+.experience-item::after,
+.education-item::after,
+.publication-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 40%, rgba(0, 255, 255, 0.05) 50%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    border-radius: 0.5rem;
+}
+
+/* Show shine effect on hover */
+.glass-box:hover::after,
+.work-card:hover::after,
+.skill-card:hover::after,
+.experience-item:hover::after,
+.education-item:hover::after,
+.publication-item:hover::after {
+    opacity: 1;
+}
+
+/* ========================================
+   10. BUTTON STYLES
+   Unified glass button styles for CTAs and links
+   ======================================== */
+
+/* Shared glass button styling */
+.glass-btn,
+.hero-cta,
+.contact-link,
+.competitive-item {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.75rem 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    border: 2px solid var(--color-text);
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    color: var(--color-text);
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin: 0;
+    box-shadow: none;
+}
+
+/* Sweeping shine animation on buttons */
+.glass-btn::before,
+.hero-cta::before,
+.contact-link::before,
+.competitive-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+    border-radius: 0;
+    transform: none;
+}
+
+/* Animate shine sweep on hover */
+.glass-btn:hover::before,
+.hero-cta:hover::before,
+.contact-link:hover::before,
+.competitive-item:hover::before {
+    left: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+/* Button hover state - invert colors with glow */
+.glass-btn:hover,
+.hero-cta:hover,
+.contact-link:hover,
+.competitive-item:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4),
+                0 0 40px rgba(255, 255, 255, 0.2),
+                0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    border-color: var(--color-text);
+}
+
+/* Work card border glow effect */
+.work-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    border-radius: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+/* Show border glow with glitch animation on hover */
+.work-card:hover::before {
+    opacity: 1;
+    animation: glitchEffect 0.3s ease-in-out;
+}
+
+/* Work card image container */
+.work-image {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background-color: var(--color-bg-secondary);
+    flex-shrink: 0;
+}
+
+/* Work card image - zoom on hover */
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.work-card:hover .work-image img {
+    transform: scale(1.05);
+}
+
+/* Work card content area */
+.work-content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Work card title */
+.work-title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+/* Work card description */
+.work-description {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    flex-grow: 1;
+}
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    border: 2px solid var(--color-text);
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    color: var(--color-text);
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Reset any specific overrides */
+    margin: 0;
+    box-shadow: none;
+}
+
+.glass-btn::before,
+.hero-cta::before,
+.contact-link::before,
+.competitive-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+    /* Reset specific overrides */
+    border-radius: 0;
+    transform: none;
+}
+
+.glass-btn:hover::before,
+.hero-cta:hover::before,
+.contact-link:hover::before,
+.competitive-item:hover::before {
+    left: 100%;
+    /* Reset specific overrides */
+    width: 100%;
+    height: 100%;
+}
+
+.glass-btn:hover,
+.hero-cta:hover,
+.contact-link:hover,
+.competitive-item:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4),
+                0 0 40px rgba(255, 255, 255, 0.2),
+                0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    border-color: var(--color-text);
+}
+
+
+
+.work-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    border-radius: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.work-card:hover::before {
+    opacity: 1;
+    animation: glitchEffect 0.3s ease-in-out;
+}
+
+.work-image {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background-color: var(--color-bg-secondary);
+    flex-shrink: 0;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.work-card:hover .work-image img {
+    transform: scale(1.05);
+}
+
+.work-content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.work-title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.work-description {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* ========================================
+   11. ABOUT SECTION
+   Styles for about/skills content areas
+   ======================================== */
+
+.about-section {
+    padding: 5rem 0;
+    position: relative;
+}
+
+/* About content container */
+.about-content {
+    max-width: 800px;
+}
+
+/* About section body text */
+.about-text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.04em;
+}
+
+/* Skills list container */
+.about-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Individual skill row */
+.skill-item {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-bg-secondary);
+}
+
+/* Skill label - left column */
+.skill-label {
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    width: 150px;
+    flex-shrink: 0;
+}
+
+/* Skill value - right column */
+.skill-value {
+    font-size: 1rem;
+    letter-spacing: -0.04em;
+    flex: 1;
+}
+
+/* Software skill badges - cyberpunk hover effect */
+.software-skills span {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    border: 1px solid transparent;
+}
+
+/* Skill badge hover - invert colors with glow */
+.software-skills span:hover {
+    background: var(--color-text) !important;
+    color: var(--color-bg);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3),
+                0 0 30px rgba(255, 255, 255, 0.1),
+                0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Skill badge shine overlay */
+.software-skills span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 4px;
+}
+
+.software-skills span:hover::before {
+    opacity: 1;
+}
+
+/* Competitive programming site links */
+.competitive-sites a {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.competitive-sites a:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2),
+                0 0 25px rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   12. CONTACT SECTION
+   Contact information and social links
+   ======================================== */
+
+.contact-section {
+    padding: 5rem 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Contact section title */
+.contact-title {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: -0.08em;
+    line-height: 1em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+}
+
+/* Contact section description */
+.contact-description {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    letter-spacing: -0.04em;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Contact links container - flex wrap for responsive */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   13. FOOTER
+   Site footer with copyright information
+   ======================================== */
+
+.footer {
+    background-color: var(--color-bg);
+    padding: 2rem 1.25rem;
+    border-top: 1px solid var(--color-bg-secondary);
+}
+
+/* Footer container - centered content */
+.footer-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Footer social links container */
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Footer link styling with underline animation */
+.footer-link {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-text);
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--color-text);
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+/* Footer copyright text */
+.footer-copyright {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
+/* ========================================
+   14. RESPONSIVE DESIGN
+   Breakpoints for tablet and mobile devices
+   ======================================== */
+
+/* Tablet breakpoint (max-width: 1199px) */
+@media (max-width: 1199px) {
+    /* Reduce hero title size */
+    .hero-title {
+        font-size: 6.875rem;
+    }
+    
+    /* Reduce section title size */
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    /* Auto-fit grid for flexible columns */
+    .works-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+/* Mobile breakpoint (max-width: 809px) */
+@media (max-width: 809px) {
+    /* Mobile navigation - dropdown menu */
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 58px;
+        left: 0;
+        right: 0;
+        background-color: var(--color-bg);
+        flex-direction: column;
+        padding: 2rem 1.25rem;
+        gap: 1rem;
+        border-bottom: 1px solid var(--color-bg-secondary);
+    }
+    
+    /* Show menu when active (toggled via JS) */
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    /* Show mobile menu toggle button */
+    .nav-mobile-toggle {
+        display: block;
+    }
+    
+    /* Reduced hero section height */
+    .hero {
+        min-height: 80vh;
+        padding: 4rem 1.25rem 2rem;
+    }
+    
+    /* Smaller hero title for mobile */
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    /* Smaller hero subtitle */
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    /* Smaller section titles */
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    /* Single column grid for mobile */
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Stack footer content vertically */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-social {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    /* Stack skill items vertically */
+    .skill-item {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .skill-label {
+        width: 100%;
+    }
+}
+
+/* Very small devices (max-width: 480px) */
+@media (max-width: 480px) {
+    /* Even smaller hero title */
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    /* Stack contact links vertically */
+    .contact-links {
+        flex-direction: column;
+    }
+    
+    /* Full width contact links */
+    .contact-link {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* ========================================
+   15. ANIMATIONS & KEYFRAMES
+   CSS keyframe animations for various effects
+   ======================================== */
+
+/* Fade in from bottom animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide in from left animation */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-4rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide in from right animation */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(4rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Simple fade in with scale animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Neon glow pulse animation - used on buttons */
+@keyframes neonPulse {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.2),
+                    0 0 10px rgba(255, 255, 255, 0.1),
+                    inset 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.4),
+                    0 0 30px rgba(255, 255, 255, 0.2),
+                    0 0 40px rgba(255, 255, 255, 0.1),
+                    inset 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Glitch effect animation - subtle position jitter */
+@keyframes glitchEffect {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* Animation utility classes - applied via JS */
+.fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Initial state for scroll-triggered animated elements */
+.animate-on-scroll {
+    opacity: 0;
+    will-change: transform, opacity;        /* Performance hint for browser */
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* ========================================
+   16. UTILITY CLASSES
+   Reusable helper classes for common patterns
+   ======================================== */
+
+/* Container utility - centers content with max-width */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+/* Text alignment utility */
+.text-center {
+    text-align: center;
+}
+
+/* Margin-top utilities */
+.mt-1 { margin-top: var(--spacing-sm); }    /* 16px */
+.mt-2 { margin-top: var(--spacing-md); }    /* 24px */
+.mt-3 { margin-top: var(--spacing-lg); }    /* 32px */
+.mt-4 { margin-top: var(--spacing-xl); }    /* 64px */
+
+/* Margin-bottom utilities */
+.mb-1 { margin-bottom: var(--spacing-sm); } /* 16px */
+.mb-2 { margin-bottom: var(--spacing-md); } /* 24px */
+.mb-3 { margin-bottom: var(--spacing-lg); } /* 32px */
+.mb-4 { margin-bottom: var(--spacing-xl); } /* 64px */

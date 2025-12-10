@@ -1,0 +1,295 @@
+# ============================================================
+# PORTFOLIO DATA CONFIGURATION
+# ============================================================
+# This YAML file contains all the dynamic content for the portfolio website.
+# It serves as a single source of truth for personal information, experience,
+# education, projects, and contact details.
+#
+# Last Updated: 2025-11-30
+# Author: Rajath Jaiprakash
+# ============================================================
+
+# ------------------------------------------------------------
+# SEO & META CONFIGURATION
+# Settings for search engines and social media sharing
+# ------------------------------------------------------------
+seo:
+  title: "Rajath Jaiprakash Portfolio"                      # Browser tab title
+  description: "I am a keen learner, who is always up for a challenge."
+  
+  # Open Graph meta tags for social media previews
+  og:
+    title: "Rajath Jaiprakash Portfolio"
+    type: "website"
+    url: "https://rajathjaiprakash.com"
+    image: "icons/thumbnail.png"                   # Social media preview image
+
+# ------------------------------------------------------------
+# PERSONAL INFORMATION
+# Basic personal and professional details
+# ------------------------------------------------------------
+personal:
+  name: "Rajath Jaiprakash"
+  nickname: "Raj"
+  current_role: "Site Reliability Engineer 2"
+  location: "Bangalore, Karnataka, India"
+  email: "rajathjnx@gmail.com"
+  
+  # Professional taglines displayed in the hero section
+  taglines:
+    - "Mid-level SRE combining code-driven automation with granular observability."
+    - "I build tools that allow teams to move faster without breaking production."
+  
+  # Resume/CV link
+  resume_url: "https://drive.google.com/drive/folders/12yPrJwy3fg1vbPbRqMWvDVdtHjpoW4PF?usp=share_link"
+  
+  # Profile photo for contact section
+  photo: "images/Photo.png"
+
+# ------------------------------------------------------------
+# SOCIAL MEDIA LINKS
+# Professional and social media profiles
+# ------------------------------------------------------------
+social_media:
+  # Primary professional links (displayed in hero section)
+  primary:
+    - name: "GitHub"
+      url: "https://github.com/rajathjn"
+      icon: "fab fa-github"
+    
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/in/rajath-jaiprakash/"
+      icon: "fab fa-linkedin-in"
+  
+  # Contact section links
+  contact:
+    - name: "Email"
+      url: "mailto:rajathjnx@gmail.com"
+      icon: "fas fa-envelope"
+    
+    - name: "GitHub"
+      url: "https://github.com/rajathjn"
+      icon: "fab fa-github"
+    
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/in/rajath-jaiprakash/"
+      icon: "fab fa-linkedin-in"
+    
+    - name: "Medium"
+      url: "https://medium.com/@rajathjnx"
+      icon: "fab fa-medium"
+    
+    - name: "Hashnode"
+      url: "https://blog.rajathjaiprakash.com"
+      icon: "fab fa-hashnode"
+
+# ------------------------------------------------------------
+# SKILLS SECTION
+# Technical skills and competencies
+# ------------------------------------------------------------
+skills:
+  title: "Site Reliability Engineer 2"
+  
+  # Key skill points (displayed as bullet points)
+  key_points:
+    - "⚡ Developed highly scalable production ready models using Ansible"
+    - "⚡ Experience of working with DNS, Monitoring and logging tools"
+    - "⚡ Skilled in Layer 2/3 network protocols, Virtualization, Network management and troubleshooting"
+  
+  # Technology stack (displayed as badges)
+  technologies:
+    - name: "Ansible"
+      icon: "fas fa-cog"
+    
+    - name: "Python"
+      icon: "fab fa-python"
+    
+    - name: "Linux"
+      icon: "fab fa-linux"
+    
+    - name: "Git"
+      icon: "fab fa-git-alt"
+    
+    - name: "Prometheus"
+      icon: "fas fa-chart-line"
+    
+    - name: "Grafana"
+      icon: "fas fa-chart-area"
+    
+    - name: "Kubernetes"
+      icon: "fas fa-dharmachakra"
+    
+    - name: "Golang"
+      icon: "fas fa-code"
+    
+    - name: "Open Telemetry"
+      icon: "fas fa-satellite-dish"
+    
+    - name: "ELK Stack"
+      icon: "fas fa-search"
+    
+    - name: "Docker"
+      icon: "fab fa-docker"
+    
+    - name: "Bash"
+      icon: "fas fa-terminal"
+    
+    - name: "VMware"
+      icon: "fas fa-server"
+    
+    - name: "DNS (Bind9)"
+      icon: "fas fa-network-wired"
+
+# ------------------------------------------------------------
+# EXPERIENCE SECTION
+# Work experience and internships
+# ------------------------------------------------------------
+experience:
+  # About me summary
+  summary: "I am currently working as a Site Reliability Engineer 2. I have worked on various projects related to DevOps and Cloud. Various university club related projects. I was fortunate enough to work with some amazing people and learn a lot of new things."
+  
+  # Work Experience
+  work:
+    - title: "Site Reliability Engineer 2"
+      company: "Akamai Technologies"
+      company_url: "https://www.akamai.com/"
+      duration: "Oct 2024 - Present"
+      location: "Bangalore, Karnataka"
+      responsibilities:
+        - "Working in the Mobile Security and Networking team"
+        - "Responsible for the Secure Internet Access Services for MNOs and ISPs"
+        - "Working on improving the deployment services and automation"
+        - "Involved in process improvements, version upgrade/migration, optimization and feature expansion"
+    
+    - title: "Site Reliability Engineer"
+      company: "Akamai Technologies"
+      company_url: "https://www.akamai.com/"
+      duration: "Jul 2022 - Sep 2024"
+      location: "Bangalore, Karnataka"
+      responsibilities:
+        - "Part of the Automation Team working in deployment services"
+        - "Projects involve automation for program setup and configuration"
+        - "Working on Mobile Security and Networking"
+        - "Responsible for Secure Internet Access Services for MNOs and ISPs"
+  
+  # Internships
+  internships:
+    - title: "SRE Intern"
+      company: "Akamai Technologies"
+      company_url: "https://www.akamai.com/"
+      duration: "Jan 2022 - May 2022"
+      location: "Dublin, Ireland"
+      responsibilities:
+        - "Part of Akamai's SIA-Mobile SRE team"
+        - "Responsible for deployment of new features and bug fixes"
+        - "Worked on automation of the deployment process"
+
+# ------------------------------------------------------------
+# EDUCATION SECTION
+# Academic qualifications
+# ------------------------------------------------------------
+education:
+  degrees:
+    - institution: "PES University, Bangalore"
+      degree: "B.Tech. in Electronics and Communication Engineering"
+      duration: "2018 - 2022"
+      website: "https://pes.edu"
+      highlights:
+        - "⚡ Studied electronics engineering subjects like Signals and Systems, DSP, NAS, Computer Networking, EDA"
+        - "⚡ Completed courses on Internet of Things, Fundamentals of MATLAB and Artificial Neural Networks"
+        - "⚡ Selected for Merit cum Means Scholarship (top 10% of students)"
+    
+    - institution: "PES University, Bangalore"
+      degree: "B.Tech. Minor in Computer Science and Engineering"
+      duration: "2018 - 2022"
+      website: "https://pes.edu/"
+      highlights:
+        - "⚡ Studied software engineering subjects like DS, Algorithms, DBMS, OS, CA, AI"
+        - "⚡ Completed courses on Introduction to Unix and Shell Programming, Source control and Programming principles"
+  
+  # Competitive programming profiles
+  competitive_programming:
+    - name: "LeetCode"
+      url: "https://leetcode.com/rajathjnx"
+      icon: "fas fa-code"
+    
+    - name: "HackerRank"
+      url: "https://www.hackerrank.com/rajathjnx"
+      icon: "fas fa-trophy"
+
+# ------------------------------------------------------------
+# PROJECTS SECTION
+# Featured projects with descriptions
+# ------------------------------------------------------------
+projects:
+  description: "Here are a few projects I have worked on"
+  
+  # Featured projects (displayed in the projects grid)
+  featured:
+    - name: "Shorts Maker 📽️"
+      url: "https://github.com/rajathjn/shorts_maker"
+      image: "images/project-1.png"
+      description: "ClipForge is a Python package designed to facilitate the creation of engaging short videos or social media clips"
+      languages:
+        - "Python"
+    
+    - name: "Frostmourne Tunes 🎶"
+      url: "https://github.com/rajathjn/frostmourne_tunes"
+      image: "images/project-2.png"
+      description: "Discord Music Bot made using Python"
+      languages:
+        - "Python"
+    
+    - name: "Resume 📝"
+      url: "https://github.com/rajathjn/Resume"
+      image: "images/project-3.png"
+      description: "Repository contains the LaTeX source code for my professional resume and Cover Letter"
+      languages:
+        - "LaTeX"
+    
+    - name: "EmotionRecognition"
+      url: "https://github.com/rajathjn/EmotionRecognition"
+      image: "images/project-4.png"
+      description: "A program to detect the emotion of occupants of a car"
+      languages:
+        - "Python"
+        - "Jupyter Notebook"
+
+# ------------------------------------------------------------
+# PUBLICATIONS SECTION
+# Published articles, blogs, and research papers
+# ------------------------------------------------------------
+publications:
+  description: "Some of my published Articles, Blogs and Research."
+  
+  items:
+    - title: "Analog Front-End Modelling of Miniature CMOS Image Sensors"
+      description: "The paper details the design and simulation of the working of an Analog Front-End Model of Miniature CMOS Image Sensor"
+      url: "https://ieeexplore.ieee.org/document/9865797"
+      published_date: "2022-07-10"
+      publisher: "IEEE"
+
+# ------------------------------------------------------------
+# CONTACT SECTION
+# Contact page configuration
+# ------------------------------------------------------------
+contact:
+  title: "GET IN TOUCH"
+  description: "Feel free to contact me. I will try to respond whenever possible."
+  
+  # Blog platforms
+  blogs:
+    - name: "Medium"
+      url: "https://medium.com/@rajathjnx"
+    
+    - name: "Hashnode"
+      url: "https://blog.rajathjaiprakash.com"
+
+# ------------------------------------------------------------
+# CERTIFICATIONS (Optional)
+# Professional certifications
+# ------------------------------------------------------------
+certifications:
+  - title: "Problem Solving (Intermediate)"
+    platform: "HackerRank"
+    url: "https://www.hackerrank.com/certificates/aaed0ced0424"
